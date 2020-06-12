@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="HelloWindow.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
