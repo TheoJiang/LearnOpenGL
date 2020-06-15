@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "Triangle.h"
+#include "Common.h"
 
 using namespace std;
 
@@ -9,8 +10,7 @@ void framebuffer_size_callback(GLFWwindow * win, int width, int height)
 {
 	glViewport(0, 0, width, height);
 }
-
-int trigeredKey = GLFW_KEY_UNKNOWN;
+int key_levl1 = -1;
 // process all input, query GLFW whether relevant keys are pressed/release this frame and react accordingly
 void processInput(GLFWwindow *win)
 {
@@ -19,16 +19,11 @@ void processInput(GLFWwindow *win)
 		glfwSetWindowShouldClose(win, true);
 	}
 
-	if (trigeredKey == GLFW_KEY_1)
+	if (key_levl1 == GLFW_KEY_1)
 	{
-		GenerateTriangle();
-		DrawTriangle();
+		Triangle_ProcessInput();
 	}
-	if (trigeredKey == GLFW_KEY_2)
-	{
-		GenerateRectangle();
-		DrawRectangle();
-	}
+	
 
 	// Ë«»º³å£¬ ½»»»»º³åÇø
 	glfwSwapBuffers(win);
@@ -40,19 +35,19 @@ void key_callback(GLFWwindow* win, int key, int scancode, int action, int mods)
 	{
 		return;
 	}
-
-	trigeredKey = key;
-	//if (key == GLFW_KEY_1)
-	//{
-	//	DrawTriangle();
-	//}
-	//if (key == GLFW_KEY_8)
-	//{
-	//	DrawTriangle();
-	//}
-		
-	// Ë«»º³å£¬ ½»»»»º³åÇø
-	//glfwSwapBuffers(win);
+	if (key_levl1 == -1 && key != GLFW_KEY_BACKSPACE)
+	{
+		key_levl1 = key;
+	}
+	else if (key == GLFW_KEY_BACKSPACE)
+	{
+		key_levl1 = -1;
+	}
+	else
+	{
+		Common::SetKey(key);
+	}
+	
 }
 
 int main()

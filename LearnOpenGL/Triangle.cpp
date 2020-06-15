@@ -1,5 +1,6 @@
 #include "Triangle.h"
 #include <string>
+#include "Common.h"
 using namespace std;
 
 float vertices[] = {
@@ -148,6 +149,7 @@ void GenerateRectangle()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), &indices, GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
 	glEnableVertexAttribArray(0);
 
 	CreateAndCompileShader();
@@ -161,4 +163,19 @@ void DrawRectangle()
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
+}
+
+void Triangle_ProcessInput()
+{
+	int Key = Common::GetKey();
+	if (Key == GLFW_KEY_1)
+	{
+		GenerateTriangle();
+		DrawTriangle();
+	}
+	if (Key == GLFW_KEY_2)
+	{
+		GenerateRectangle();
+		DrawRectangle();
+	}
 }
