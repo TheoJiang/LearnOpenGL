@@ -10,7 +10,7 @@ void framebuffer_size_callback(GLFWwindow * win, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-int key = GLFW_KEY_UNKNOWN;
+int trigeredKey = GLFW_KEY_UNKNOWN;
 // process all input, query GLFW whether relevant keys are pressed/release this frame and react accordingly
 void processInput(GLFWwindow *win)
 {
@@ -18,19 +18,41 @@ void processInput(GLFWwindow *win)
 	{
 		glfwSetWindowShouldClose(win, true);
 	}
-	
-	if (glfwGetKey(win, GLFW_KEY_1) == GLFW_PRESS)
-	{
-		key = GLFW_KEY_1;		
-	}
 
-	if (key == GLFW_KEY_1)
+	if (trigeredKey == GLFW_KEY_1)
 	{
+		GenerateTriangle();
 		DrawTriangle();
+	}
+	if (trigeredKey == GLFW_KEY_2)
+	{
+		GenerateRectangle();
+		DrawRectangle();
 	}
 
 	// Ë«»º³å£¬ ½»»»»º³åÇø
 	glfwSwapBuffers(win);
+}
+
+void key_callback(GLFWwindow* win, int key, int scancode, int action, int mods)
+{
+	if (action != GLFW_RELEASE)
+	{
+		return;
+	}
+
+	trigeredKey = key;
+	//if (key == GLFW_KEY_1)
+	//{
+	//	DrawTriangle();
+	//}
+	//if (key == GLFW_KEY_8)
+	//{
+	//	DrawTriangle();
+	//}
+		
+	// Ë«»º³å£¬ ½»»»»º³åÇø
+	//glfwSwapBuffers(win);
 }
 
 int main()
@@ -57,11 +79,13 @@ int main()
 	}
 
 	glViewport(0, 0, 400, 300);
-
+	glfwSetKeyCallback(win, key_callback);
 	// Trigger when Window Size changed
 	glfwSetFramebufferSizeCallback(win, framebuffer_size_callback);
 
-	GenerateTriangle();
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//GenerateTriangle();
+	//GenerateRectangle();
 	while (!glfwWindowShouldClose(win))
 	{
 		// Process Input Commands

@@ -5,3 +5,6 @@
 
 void GenerateTriangle();
 void DrawTriangle();
+
+void GenerateRectangle();
+void DrawRectangle();
