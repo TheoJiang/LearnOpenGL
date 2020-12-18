@@ -52,7 +52,7 @@ extern "C" {
  *  This is the reference documentation for OpenGL and OpenGL ES context related
  *  functions.  For more task-oriented information, see the @ref context_guide.
  */
-/*! @defgroup vulkan Vulkan support reference
+/*! @defgroup vulkan Vulkan reference
  *  @brief Functions and types related to Vulkan.
  *
  *  This is the reference documentation for Vulkan related functions and types.
@@ -270,7 +270,7 @@ extern "C" {
  *  API changes.
  *  @ingroup init
  */
-#define GLFW_VERSION_REVISION       3
+#define GLFW_VERSION_REVISION       2
 /*! @} */
 
 /*! @brief One.
@@ -1752,10 +1752,6 @@ typedef struct GLFWgamepadstate
  *  application to the `Contents/Resources` subdirectory of the application's
  *  bundle, if present.  This can be disabled with the @ref
  *  GLFW_COCOA_CHDIR_RESOURCES init hint.
- *
- *  @remark @x11 This function will set the `LC_CTYPE` category of the
- *  application locale according to the current environment if that category is
- *  still "C".  This is because the "C" locale breaks Unicode text input.
  *
  *  @thread_safety This function must only be called from the main thread.
  *
