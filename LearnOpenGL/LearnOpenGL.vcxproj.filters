@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\Imgui">
+      <UniqueIdentifier>{0673883d-b5bc-45d3-8aab-8a29d743b7ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Imgui">
+      <UniqueIdentifier>{43467848-45a9-4122-84ef-9277b745d9aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Chapters">
+      <UniqueIdentifier>{533a5689-672b-486f-8802-0c24ebc5ca54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Chapters">
+      <UniqueIdentifier>{3e303958-ac47-4611-9124-81998c2f2379}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -27,6 +39,33 @@
     <ClCompile Include="Common.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="InitLand.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL\include\imgui\imgui.cpp">
+      <Filter>源文件\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL\include\imgui\imgui_demo.cpp">
+      <Filter>源文件\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL\include\imgui\imgui_draw.cpp">
+      <Filter>源文件\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL\include\imgui\imgui_tables.cpp">
+      <Filter>源文件\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL\include\imgui\imgui_widgets.cpp">
+      <Filter>源文件\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL\include\imgui\backends\imgui_impl_opengl3.cpp">
+      <Filter>源文件\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL\include\imgui\backends\imgui_impl_glfw.cpp">
+      <Filter>源文件\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Chapters\1.DrawTriangle.cpp">
+      <Filter>源文件\Chapters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Triangle.h">
@@ -34,6 +73,36 @@
     </ClInclude>
     <ClInclude Include="Common.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\imgui.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\imconfig.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\imgui_internal.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\imstb_rectpack.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\imstb_textedit.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\imstb_truetype.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\backends\imgui_impl_opengl3.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL\include\imgui\backends\imgui_impl_glfw.h">
+      <Filter>头文件\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapters\0.ListAll.h">
+      <Filter>头文件\Chapters</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapters\1.DrawTriangle.h">
+      <Filter>头文件\Chapters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
