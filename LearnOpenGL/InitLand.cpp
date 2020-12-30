@@ -185,34 +185,46 @@ void ImguiContext()
 	if (show_another_window)
 
 	{
-
-		ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-		ImGui::Text("Hello from another window!");
-		if (ImGui::Button("Close Me"))
-			show_another_window = false;
-
-		if (ImGui::CollapsingHeader("Help"))
+		ImGui::Begin("LearnOpenGL and re-learn C++");
+		ImGui::Text("OpenGL Examples");
+		if (ImGui::Button("1.Create Triangle"))
 		{
-			ImGui::Text("ABOUT THIS DEMO:");
-			ImGui::BulletText("Sections below are demonstrating many aspects of the library.");
-			ImGui::BulletText("The \"Examples\" menu above leads to more demo contents.");
-			ImGui::BulletText("The \"Tools\" menu above gives access to: About Box, Style Editor,\n"
-				"and Metrics/Debugger (general purpose Dear ImGui debugging tool).");
-			ImGui::Separator();
 
-			ImGui::Text("PROGRAMMER GUIDE:");
-			ImGui::BulletText("See the ShowDemoWindow() code in imgui_demo.cpp. <- you are here!");
-			ImGui::BulletText("See comments in imgui.cpp.");
-			ImGui::BulletText("See example applications in the examples/ folder.");
-			ImGui::BulletText("Read the FAQ at http://www.dearimgui.org/faq/");
-			ImGui::BulletText("Set 'io.ConfigFlags |= NavEnableKeyboard' for keyboard controls.");
-			ImGui::BulletText("Set 'io.ConfigFlags |= NavEnableGamepad' for gamepad controls.");
-			ImGui::Separator();
-
-			ImGui::Text("USER GUIDE:");
-			ImGui::ShowUserGuide();
-		}
+		};
+		ImGui::Button("2.Using Shader Program");
+		ImGui::Button("3.Using Texture");
+		ImGui::Button("4.Transformations");
+		ImGui::Button("5.Coordinate Systems");
+		ImGui::Button("6.Camera");
 		ImGui::End();
+
+		//ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+		//ImGui::Text("Hello from another window!");
+		//if (ImGui::Button("Close Me"))
+		//	show_another_window = false;
+
+		//if (ImGui::CollapsingHeader("Help"))
+		//{
+		//	ImGui::Text("ABOUT THIS DEMO:");
+		//	ImGui::BulletText("Sections below are demonstrating many aspects of the library.");
+		//	ImGui::BulletText("The \"Examples\" menu above leads to more demo contents.");
+		//	ImGui::BulletText("The \"Tools\" menu above gives access to: About Box, Style Editor,\n"
+		//		"and Metrics/Debugger (general purpose Dear ImGui debugging tool).");
+		//	ImGui::Separator();
+
+		//	ImGui::Text("PROGRAMMER GUIDE:");
+		//	ImGui::BulletText("See the ShowDemoWindow() code in imgui_demo.cpp. <- you are here!");
+		//	ImGui::BulletText("See comments in imgui.cpp.");
+		//	ImGui::BulletText("See example applications in the examples/ folder.");
+		//	ImGui::BulletText("Read the FAQ at http://www.dearimgui.org/faq/");
+		//	ImGui::BulletText("Set 'io.ConfigFlags |= NavEnableKeyboard' for keyboard controls.");
+		//	ImGui::BulletText("Set 'io.ConfigFlags |= NavEnableGamepad' for gamepad controls.");
+		//	ImGui::Separator();
+
+		//	ImGui::Text("USER GUIDE:");
+		//	ImGui::ShowUserGuide();
+		//}
+		//ImGui::End();
 
 	}
 }
