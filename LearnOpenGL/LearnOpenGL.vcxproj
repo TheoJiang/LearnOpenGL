@@ -26,6 +26,7 @@
     <ClCompile Include="..\OpenGL\include\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\OpenGL\include\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\OpenGL\include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Chapters\0.ListAll.cpp" />
     <ClCompile Include="Chapters\1.DrawTriangle.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="glad.c" />
@@ -46,6 +47,10 @@
     <ClInclude Include="Chapters\1.DrawTriangle.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Triangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\1.triangle.fs" />
+    <None Include="Shader\1.triangle.vs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

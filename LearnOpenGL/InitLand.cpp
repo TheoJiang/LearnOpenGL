@@ -12,8 +12,8 @@
 #include "imgui_impl_opengl3.h"
 
 // --------------------
-#include "Chapters/0.ListAll.h"
-
+//#include "Chapters/0.ListAll.h"
+#include "Chapters/1.DrawTriangle.h"
 using namespace std;
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
@@ -28,7 +28,7 @@ static void glfw_error_callback(int error, const char* description)
 	fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-
+// Trigger when Window Size changed
 void framebuffer_size_callback(GLFWwindow* win, int width, int height)
 {
 	glViewport(0, 0, width, height);
@@ -46,9 +46,6 @@ void processInput(GLFWwindow* win)
 	//{
 	//	Triangle_ProcessInput();
 	//}
-
-
-
 }
 
 void key_callback(GLFWwindow* win, int key, int scancode, int action, int mods)
@@ -81,9 +78,9 @@ void RenderIMGUI(GLFWwindow* window)
 	ImGui::Render();
 	int display_w, display_h;
 	glfwGetFramebufferSize(window, &display_w, &display_h);
-	glViewport(0, 0, display_w, display_h);
-	glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-	glClear(GL_COLOR_BUFFER_BIT);
+	//glViewport(0, 0, display_w, display_h);
+	//glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+	//glClear(GL_COLOR_BUFFER_BIT);
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
@@ -100,6 +97,8 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	// 禁用双缓冲
+	//glfwWindowHint(GLFW_DOUBLEBUFFER, GL_FALSE);
 
 	GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
 	if (window == NULL)
@@ -142,6 +141,7 @@ int main()
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	//glfwSetKeyCallback(window, key_callback);
+
 	// Trigger when Window Size changed
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
@@ -150,11 +150,9 @@ int main()
 		processInput(window);
 
 		// Process Rendering Commands
-		glClearColor(.2, .3, .3, 1);
+		//glViewport(0, 0, display_w, display_h);
+		glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
 		glClear(GL_COLOR_BUFFER_BIT);
-
-		// 触发按键事件					
-		glfwPollEvents();
 
 		// Start the Dear ImGui frame
 		ImGui_ImplOpenGL3_NewFrame();
@@ -164,6 +162,10 @@ int main()
 		ImguiContext();
 
 		RenderIMGUI(window);
+
+		// 触发按键事件					
+		glfwPollEvents();
+		//glFlush(); // 如果禁用双缓冲， 应该用方法来呈现内容
 		// 双缓冲， 交换缓冲区
 		glfwSwapBuffers(window);
 	}
@@ -179,6 +181,7 @@ int main()
 	return 0;
 }
 
+Chapter *currentChapter;
 void ImguiContext()
 {
 	bool show_another_window = true;
@@ -189,7 +192,13 @@ void ImguiContext()
 		ImGui::Text("OpenGL Examples");
 		if (ImGui::Button("1.Create Triangle"))
 		{
-
+			if (currentChapter != nullptr)
+			{
+				delete currentChapter;
+				currentChapter = nullptr;
+			}
+			currentChapter = new DrawTriangle();
+			currentChapter->InitData();
 		};
 		ImGui::Button("2.Using Shader Program");
 		ImGui::Button("3.Using Texture");
@@ -226,5 +235,10 @@ void ImguiContext()
 		//}
 		//ImGui::End();
 
+	}
+
+	if (currentChapter != nullptr)
+	{
+		currentChapter->Draw();
 	}
 }

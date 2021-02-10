@@ -18,3 +18,24 @@
 // 两者也可以一起用.
 
 #pragma once
+#include "0.ListAll.h"
+
+class DrawTriangle : public Chapter
+{
+public:
+	DrawTriangle();
+	~DrawTriangle();
+	void Draw();
+	void InitData();
+private:
+	unsigned int vao;
+	unsigned int vbo;
+	unsigned int shaderP;
+
+	float vertices[9] = {
+	-0.5f, -0.5f, 0.0f,
+	 0.5f, -0.5f, 0.0f,
+	 0.0f,  0.5f, 0.0f
+	};
+};
+
