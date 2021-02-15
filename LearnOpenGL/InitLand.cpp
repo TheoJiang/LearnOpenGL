@@ -182,6 +182,14 @@ int main()
 }
 
 Chapter *currentChapter;
+void ButtonClicked()
+{
+	if (currentChapter != nullptr)
+	{
+		delete currentChapter;
+		currentChapter = nullptr;
+	}
+}
 void ImguiContext()
 {
 	bool show_another_window = true;
@@ -192,36 +200,29 @@ void ImguiContext()
 		ImGui::Text("OpenGL Examples");
 		if (ImGui::Button("1.Create Triangle"))
 		{
-			if (currentChapter != nullptr)
-			{
-				delete currentChapter;
-				currentChapter = nullptr;
-			}
+			ButtonClicked();
 			currentChapter = new DrawTriangle();
 			currentChapter->InitData();
 		};
 		if (ImGui::Button("1.1.Create Rectangle"))
 		{
-			if (currentChapter != nullptr)
-			{
-				delete currentChapter;
-				currentChapter = nullptr;
-			}
+			ButtonClicked();
 			currentChapter = new DrawTriangle();
 			currentChapter->InitData(1);
 		}
 
 		if (ImGui::Button("1.2.Set Uniform Value"))
 		{
-			if (currentChapter != nullptr)
-			{
-				delete currentChapter;
-				currentChapter = nullptr;
-			}
+			ButtonClicked();
 			currentChapter = new DrawTriangle();
 			currentChapter->InitData(2);
 		}
-
+		if (ImGui::Button("1.3.Mutiple Attributes "))
+		{
+			ButtonClicked();
+			currentChapter = new DrawTriangle();
+			currentChapter->InitData(3);
+		}
 		ImGui::Button("2.Using Shader Program");
 		ImGui::Button("3.Using Texture");
 		ImGui::Button("4.Transformations");

@@ -28,6 +28,7 @@
     <ClCompile Include="..\OpenGL\include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Chapters\0.ListAll.cpp" />
     <ClCompile Include="Chapters\1.DrawTriangle.cpp" />
+    <ClCompile Include="Chapters\ShaderHelper.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="HelloWindow.cpp" />
@@ -45,10 +46,13 @@
     <ClInclude Include="..\OpenGL\include\imgui\imstb_truetype.h" />
     <ClInclude Include="Chapters\0.ListAll.h" />
     <ClInclude Include="Chapters\1.DrawTriangle.h" />
+    <ClInclude Include="Chapters\ShaderHelper.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shader\1.3.MultipleAttributes.fs" />
+    <None Include="Shader\1.3.MultipleAttributes.vs" />
     <None Include="Shader\1.triangle.fs" />
     <None Include="Shader\1.triangle.vs" />
   </ItemGroup>

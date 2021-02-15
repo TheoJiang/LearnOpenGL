@@ -19,8 +19,8 @@ void Chapter::InitData(int type)
 }
 void Chapter::LoadAllShader(string vsp, string fsp, unsigned int *shaderProgramID)
 {
-	string vsStr = LoadShader("Shader/1.triangle.vs");
-	string fsStr = LoadShader("Shader/1.triangle.fs");
+	string vsStr = LoadShader(vsp);
+	string fsStr = LoadShader(fsp);
 
 	const char* vs = vsStr.c_str();
 	const char* fs = fsStr.c_str();

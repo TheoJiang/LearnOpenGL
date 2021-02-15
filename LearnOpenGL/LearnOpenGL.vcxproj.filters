@@ -72,6 +72,9 @@
     <ClCompile Include="Chapters\0.ListAll.cpp">
       <Filter>源文件\Chapters</Filter>
     </ClCompile>
+    <ClCompile Include="Chapters\ShaderHelper.cpp">
+      <Filter>源文件\Chapters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
@@ -110,12 +113,21 @@
     <ClInclude Include="Triangle.h">
       <Filter>头文件\Chapters</Filter>
     </ClInclude>
+    <ClInclude Include="Chapters\ShaderHelper.h">
+      <Filter>头文件\Chapters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\1.triangle.vs">
       <Filter>Shader</Filter>
     </None>
     <None Include="Shader\1.triangle.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\1.3.MultipleAttributes.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Shader\1.3.MultipleAttributes.vs">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

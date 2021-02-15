@@ -17,27 +17,26 @@
 #include <fstream> 
 #include <iostream> 
 #include <sstream> 
-#include "ShaderHelper.h"
-
 using namespace std;
 
-struct ChapterInfo
-{
-	char *chapterName;
-};
-
-class Chapter
+class ShaderHelper
 {
 public:
-	Chapter();
-	~Chapter();
-	virtual void Draw();
-	virtual void InitData(int type = 0);
-	string Title;
-protected:
-	void LoadAllShader(string vsp, string fsp, unsigned int *shaderProgramID);
+	ShaderHelper();
+	ShaderHelper(string vsp, string fsp);
+	~ShaderHelper();
+	void LoadAllShader(string vsp, string fsp);
+	int ID;
+	void Use();
+	// uniform¹¤¾ßº¯Êý
+	void SetBool(const string& name, bool value) const;
+	void SetInt(const string& name, int value) const;
+	void SetFloat(const string& name, float value) const;
+	void SetFloat4(const string& name, float x, float y, float z, float w) const;
+private:
 	string LoadShader(string shaderPath);
 	bool IsShaderCompiledSuc(int shaderID);
 	bool IsShaderProgramLinkSuc(int shaderProgramID);
-private:
+
+
 };

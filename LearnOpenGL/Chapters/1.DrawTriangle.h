@@ -29,6 +29,7 @@ public:
 	void InitData(int type);
 
 	void InitRectangleData();
+	void InitMultipleAttributes();
 private:
 	unsigned int vao;
 	unsigned int vbo;
@@ -54,7 +55,13 @@ private:
 		1, 2, 3  // 第二个三角形
 	};
 
-	bool useEbo;
+	float verticesWithColors[18] = {
+		// 位置              // 颜色
+		 0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // 右下
+		-0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // 左下
+		 0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // 顶部
+	};
+	ShaderHelper shader;
 	int drawType = 0;
 };
 
