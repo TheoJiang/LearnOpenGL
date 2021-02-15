@@ -200,6 +200,28 @@ void ImguiContext()
 			currentChapter = new DrawTriangle();
 			currentChapter->InitData();
 		};
+		if (ImGui::Button("1.1.Create Rectangle"))
+		{
+			if (currentChapter != nullptr)
+			{
+				delete currentChapter;
+				currentChapter = nullptr;
+			}
+			currentChapter = new DrawTriangle();
+			currentChapter->InitData(1);
+		}
+
+		if (ImGui::Button("1.2.Set Uniform Value"))
+		{
+			if (currentChapter != nullptr)
+			{
+				delete currentChapter;
+				currentChapter = nullptr;
+			}
+			currentChapter = new DrawTriangle();
+			currentChapter->InitData(2);
+		}
+
 		ImGui::Button("2.Using Shader Program");
 		ImGui::Button("3.Using Texture");
 		ImGui::Button("4.Transformations");

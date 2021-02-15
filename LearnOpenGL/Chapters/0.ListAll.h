@@ -31,9 +31,10 @@ public:
 	Chapter();
 	~Chapter();
 	virtual void Draw();
-	virtual void InitData();
+	virtual void InitData(int type = 0);
 	string Title;
 protected:
+	void LoadAllShader(string vsp, string fsp, unsigned int *shaderProgramID);
 	string LoadShader(string shaderPath);
 	bool IsShaderCompiledSuc(int shaderID);
 	bool IsShaderProgramLinkSuc(int shaderProgramID);

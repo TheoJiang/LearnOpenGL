@@ -14,9 +14,50 @@ Chapter::~Chapter()
 void Chapter::Draw()
 {
 }
-void Chapter::InitData()
+void Chapter::InitData(int type)
 {
 }
+void Chapter::LoadAllShader(string vsp, string fsp, unsigned int *shaderProgramID)
+{
+	string vsStr = LoadShader("Shader/1.triangle.vs");
+	string fsStr = LoadShader("Shader/1.triangle.fs");
+
+	const char* vs = vsStr.c_str();
+	const char* fs = fsStr.c_str();
+
+	unsigned int vshader;
+	vshader = glCreateShader(GL_VERTEX_SHADER);
+
+	glShaderSource(vshader, 1, &vs, NULL);
+	glCompileShader(vshader);
+
+	unsigned int fshader;
+	fshader = glCreateShader(GL_FRAGMENT_SHADER);
+
+	glShaderSource(fshader, 1, &fs, NULL);
+	glCompileShader(fshader);
+
+	if (!IsShaderCompiledSuc(vshader) || !IsShaderCompiledSuc(fshader))
+	{
+		return;
+	}
+
+	*shaderProgramID = glCreateProgram();
+
+	glAttachShader(*shaderProgramID, vshader);
+	glAttachShader(*shaderProgramID, fshader);
+	glLinkProgram(*shaderProgramID);
+
+	if (!IsShaderProgramLinkSuc(*shaderProgramID))
+	{
+		return;
+	}
+
+
+	glDeleteShader(vshader);
+	glDeleteShader(fshader);
+}
+
 string Chapter::LoadShader(string shaderPath)
 {
 	ifstream vsf(shaderPath);

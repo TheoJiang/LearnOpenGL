@@ -26,7 +26,9 @@ public:
 	DrawTriangle();
 	~DrawTriangle();
 	void Draw();
-	void InitData();
+	void InitData(int type);
+
+	void InitRectangleData();
 private:
 	unsigned int vao;
 	unsigned int vbo;
@@ -37,5 +39,22 @@ private:
 	 0.5f, -0.5f, 0.0f,
 	 0.0f,  0.5f, 0.0f
 	};
+
+	unsigned int ebo;
+
+	float rectangle[12] = {
+	0.5f, 0.5f, 0.0f,   // 右上角
+	0.5f, -0.5f, 0.0f,  // 右下角
+	-0.5f, -0.5f, 0.0f, // 左下角
+	-0.5f, 0.5f, 0.0f   // 左上角
+	};
+
+	unsigned int rectangleIndices[6] = { // 注意索引从0开始! 
+		0, 1, 3, // 第一个三角形
+		1, 2, 3  // 第二个三角形
+	};
+
+	bool useEbo;
+	int drawType = 0;
 };
 
